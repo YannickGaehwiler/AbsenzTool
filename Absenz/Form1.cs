@@ -22,6 +22,9 @@ namespace Absenz
 
             this._dbCon = new DatabaseConnection("localhost", "absenz_db", "root", "Test1234");
             this._dbCon.Connect();
+
+            _absence = new Absence(_dbCon.Con);
+            _absence.ShowAbsence();
    
         }
 

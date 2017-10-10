@@ -14,6 +14,12 @@ namespace Absenz
 
             _sqlManager = new SqlManager(studentName, date, teacherName, subject, reason, office, mySqlConnection);
         }
+
+        public Absence(MySqlConnection mySqlConnection)
+        {
+            _sqlManager = new SqlManager(mySqlConnection);
+        }
+
         public void SaveAbsence()
         {
             try
@@ -28,7 +34,7 @@ namespace Absenz
 
         public void ShowAbsence()
         {
-            
+            _sqlManager.ShowAbsence();
         }
     }
 }

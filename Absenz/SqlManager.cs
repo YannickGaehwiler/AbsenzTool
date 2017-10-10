@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace Absenz
@@ -31,6 +32,11 @@ namespace Absenz
             this._mySqlConnection = mySqlConnection;
         }
 
+        public SqlManager(MySqlConnection mySqlConnection)
+        {
+            this._mySqlConnection = mySqlConnection;
+        }
+
         public void WriteAbsence()
         {
             try
@@ -48,7 +54,27 @@ namespace Absenz
 
         public void ShowAbsence()
         {
-            
+            List<StudentAbsence> studentAbsence = new List<StudentAbsence>();
+
+            _mySqlCommand = _mySqlConnection.CreateCommand();
+            _mySqlCommand.CommandText = "SELECT * FROM absenz";
+
+            var reader = _mySqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                try
+                {
+                    studentAbsence.Add(new StudentAbsence(reader.GetString("FK_Schueler"), reader.GetString("FK_Lehrperson"), reader.GetString("FK_Fach"), reader.GetString("grund"), reader.GetString("datum")));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+
+            Console.WriteLine(studentAbsence[0].Reason);
+
         }
 
         private void GetStudentId()
