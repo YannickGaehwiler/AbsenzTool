@@ -1,0 +1,12 @@
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\bin\Debug\Absenz.exe.config
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\bin\Debug\Absenz.exe
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\bin\Debug\Absenz.pdb
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\bin\Debug\MaterialSkin.dll
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\obj\Debug\Absenz.csprojResolveAssemblyReference.cache
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\obj\Debug\Absenz.Form1.resources
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\obj\Debug\Absenz.Properties.Resources.resources
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\obj\Debug\Absenz.csproj.GenerateResource.Cache
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\obj\Debug\Absenz.csproj.CoreCompileInputs.cache
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\obj\Debug\Absenz.exe
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\obj\Debug\Absenz.pdb
+c:\users\tkg7y.tkcdev\documents\visual studio 2017\Projects\Absenz\Absenz\bin\Debug\MySql.Data.dll
