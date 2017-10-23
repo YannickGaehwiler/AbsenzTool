@@ -8,7 +8,7 @@ namespace Absenz
     public partial class Form1 : MaterialForm
     {
         private Absence _absence;
-        private readonly DatabaseConnection _dbCon;
+        private DatabaseConnection _dbCon;
         public Form1()
         {
             MaximizeBox = false;
@@ -20,11 +20,16 @@ namespace Absenz
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
-            this._dbCon = new DatabaseConnection("localhost", "absenz_db", "root", "Test1234");
-            this._dbCon.Connect();
+            EstablishDbConnection();
 
             _absence = new Absence(_dbCon.Con);
             _absence.ShowAbsence();
+        }
+
+        private void EstablishDbConnection()
+        {
+            this._dbCon = new DatabaseConnection("localhost", "absenz_db", "root", "Test1234");
+            this._dbCon.Connect();
         }
 
         private void SaveAbsenceButton_Click(object sender, EventArgs e)
