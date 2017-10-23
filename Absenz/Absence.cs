@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace Absenz
@@ -34,7 +35,7 @@ namespace Absenz
 
         public void ShowAbsence()
         {
-            _sqlManager.ShowAbsence();
+            _sqlManager.GetAbsence();
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Absenz
 
             _absence = new Absence(_dbCon.Con);
             _absence.ShowAbsence();
-   
         }
 
         private void SaveAbsenceButton_Click(object sender, EventArgs e)

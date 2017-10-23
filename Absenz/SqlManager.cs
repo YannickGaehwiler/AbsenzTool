@@ -52,9 +52,9 @@ namespace Absenz
             }
         }
 
-        public void ShowAbsence()
+        public List<StudentAbsence> GetAbsence()
         {
-            List<StudentAbsence> studentAbsence = new List<StudentAbsence>();
+            var studentAbsence = new List<StudentAbsence>();
 
             _mySqlCommand = _mySqlConnection.CreateCommand();
             _mySqlCommand.CommandText = "SELECT * FROM absenz";
@@ -72,9 +72,7 @@ namespace Absenz
                     Console.WriteLine(e);
                 }
             }
-
-            Console.WriteLine(studentAbsence[0].Reason);
-
+            return studentAbsence;
         }
 
         private void GetStudentId()
