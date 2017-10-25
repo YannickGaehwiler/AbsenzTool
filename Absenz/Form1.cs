@@ -24,6 +24,18 @@ namespace Absenz
 
             _absence = new Absence(_dbCon.Con);
             _absence.ShowAbsence();
+
+            foreach (var s in _absence.ShowAbsence())
+            {
+                System.Windows.Forms.ListViewItem blabla = new System.Windows.Forms.ListViewItem(new[] {
+                    s.Student,
+                    s.Teacher,
+                    s.Subject,
+                    s.Date,
+                    s.Reason}, -1);
+
+                materialListView1.Items.AddRange(new[] {blabla});
+            }
         }
 
         private void EstablishDbConnection()

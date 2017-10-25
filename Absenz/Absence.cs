@@ -33,9 +33,9 @@ namespace Absenz
             }
         }
 
-        public void ShowAbsence()
+        public List<StudentAbsence> ShowAbsence()
         {
-            _sqlManager.GetAbsence();
+            return _sqlManager.GetAbsence();
         }
     }
 }

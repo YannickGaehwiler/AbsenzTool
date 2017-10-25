@@ -72,6 +72,8 @@ namespace Absenz
                     Console.WriteLine(e);
                 }
             }
+            reader.Close();
+
             return studentAbsence;
         }
 

@@ -22,6 +22,7 @@ namespace Absenz
         public void Connect()
         {
             Con = new MySqlConnection(@"Server=" + _serverName + "; database=" + _databaseName + "; UID=" + _username + "; password=" + _password + ";");
+
             try
             {
                 Con.Open();

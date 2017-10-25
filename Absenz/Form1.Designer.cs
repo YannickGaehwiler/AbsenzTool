@@ -36,10 +36,16 @@ namespace Absenz
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.messageLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -57,12 +63,6 @@ namespace Absenz
             this.studentTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.studentLabel = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -103,6 +103,58 @@ namespace Absenz
             this.tabPage1.Text = "Absenzen anzeigen";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // materialListView1
+            // 
+            this.materialListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader1,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.materialListView1.Depth = 0;
+            this.materialListView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.materialListView1.FullRowSelect = true;
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            this.materialListView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1});
+            this.materialListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.materialListView1.Location = new System.Drawing.Point(3, 9);
+            this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialListView1.Name = "materialListView1";
+            this.materialListView1.OwnerDraw = true;
+            this.materialListView1.Size = new System.Drawing.Size(579, 224);
+            this.materialListView1.TabIndex = 0;
+            this.materialListView1.UseCompatibleStateImageBehavior = false;
+            this.materialListView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Schüler";
+            this.columnHeader2.Width = 110;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Lehrer";
+            this.columnHeader1.Width = 110;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Fach";
+            this.columnHeader3.Width = 110;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Datum";
+            this.columnHeader4.Width = 110;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Grund";
+            this.columnHeader5.Width = 110;
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
@@ -142,12 +194,15 @@ namespace Absenz
             // 
             // materialRaisedButton2
             // 
+            this.materialRaisedButton2.AutoSize = true;
+            this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton2.Depth = 0;
+            this.materialRaisedButton2.Icon = null;
             this.materialRaisedButton2.Location = new System.Drawing.Point(342, 177);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(150, 35);
+            this.materialRaisedButton2.Size = new System.Drawing.Size(82, 36);
             this.materialRaisedButton2.TabIndex = 13;
             this.materialRaisedButton2.Text = "Löschen";
             this.materialRaisedButton2.UseVisualStyleBackColor = true;
@@ -155,12 +210,15 @@ namespace Absenz
             // 
             // saveAbsenceButton
             // 
+            this.saveAbsenceButton.AutoSize = true;
+            this.saveAbsenceButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.saveAbsenceButton.Depth = 0;
+            this.saveAbsenceButton.Icon = null;
             this.saveAbsenceButton.Location = new System.Drawing.Point(432, 177);
             this.saveAbsenceButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveAbsenceButton.Name = "saveAbsenceButton";
             this.saveAbsenceButton.Primary = true;
-            this.saveAbsenceButton.Size = new System.Drawing.Size(150, 35);
+            this.saveAbsenceButton.Size = new System.Drawing.Size(143, 36);
             this.saveAbsenceButton.TabIndex = 12;
             this.saveAbsenceButton.Text = "Absenz erfassen";
             this.saveAbsenceButton.UseVisualStyleBackColor = true;
@@ -171,6 +229,7 @@ namespace Absenz
             this.officeTextField.Depth = 0;
             this.officeTextField.Hint = "";
             this.officeTextField.Location = new System.Drawing.Point(96, 119);
+            this.officeTextField.MaxLength = 32767;
             this.officeTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.officeTextField.Name = "officeTextField";
             this.officeTextField.PasswordChar = '\0';
@@ -179,6 +238,7 @@ namespace Absenz
             this.officeTextField.SelectionStart = 0;
             this.officeTextField.Size = new System.Drawing.Size(222, 23);
             this.officeTextField.TabIndex = 11;
+            this.officeTextField.TabStop = false;
             this.officeTextField.UseSystemPasswordChar = false;
             // 
             // officeLabel
@@ -199,6 +259,7 @@ namespace Absenz
             this.reasonTextField.Depth = 0;
             this.reasonTextField.Hint = "";
             this.reasonTextField.Location = new System.Drawing.Point(66, 80);
+            this.reasonTextField.MaxLength = 32767;
             this.reasonTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.reasonTextField.Name = "reasonTextField";
             this.reasonTextField.PasswordChar = '\0';
@@ -207,6 +268,7 @@ namespace Absenz
             this.reasonTextField.SelectionStart = 0;
             this.reasonTextField.Size = new System.Drawing.Size(506, 23);
             this.reasonTextField.TabIndex = 9;
+            this.reasonTextField.TabStop = false;
             this.reasonTextField.UseSystemPasswordChar = false;
             // 
             // reasonLabel
@@ -227,6 +289,7 @@ namespace Absenz
             this.subjectTextField.Depth = 0;
             this.subjectTextField.Hint = "";
             this.subjectTextField.Location = new System.Drawing.Point(359, 42);
+            this.subjectTextField.MaxLength = 32767;
             this.subjectTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.subjectTextField.Name = "subjectTextField";
             this.subjectTextField.PasswordChar = '\0';
@@ -235,6 +298,7 @@ namespace Absenz
             this.subjectTextField.SelectionStart = 0;
             this.subjectTextField.Size = new System.Drawing.Size(213, 23);
             this.subjectTextField.TabIndex = 7;
+            this.subjectTextField.TabStop = false;
             this.subjectTextField.UseSystemPasswordChar = false;
             // 
             // subjectLabel
@@ -255,6 +319,7 @@ namespace Absenz
             this.teacherTextField.Depth = 0;
             this.teacherTextField.Hint = "";
             this.teacherTextField.Location = new System.Drawing.Point(98, 41);
+            this.teacherTextField.MaxLength = 32767;
             this.teacherTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.teacherTextField.Name = "teacherTextField";
             this.teacherTextField.PasswordChar = '\0';
@@ -263,6 +328,7 @@ namespace Absenz
             this.teacherTextField.SelectionStart = 0;
             this.teacherTextField.Size = new System.Drawing.Size(175, 23);
             this.teacherTextField.TabIndex = 5;
+            this.teacherTextField.TabStop = false;
             this.teacherTextField.UseSystemPasswordChar = false;
             // 
             // teacherLabel
@@ -283,6 +349,7 @@ namespace Absenz
             this.dateTextField.Depth = 0;
             this.dateTextField.Hint = "";
             this.dateTextField.Location = new System.Drawing.Point(360, 4);
+            this.dateTextField.MaxLength = 32767;
             this.dateTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.dateTextField.Name = "dateTextField";
             this.dateTextField.PasswordChar = '\0';
@@ -291,6 +358,7 @@ namespace Absenz
             this.dateTextField.SelectionStart = 0;
             this.dateTextField.Size = new System.Drawing.Size(212, 23);
             this.dateTextField.TabIndex = 3;
+            this.dateTextField.TabStop = false;
             this.dateTextField.UseSystemPasswordChar = false;
             // 
             // dateLabel
@@ -311,6 +379,7 @@ namespace Absenz
             this.studentTextField.Depth = 0;
             this.studentTextField.Hint = "";
             this.studentTextField.Location = new System.Drawing.Point(73, 4);
+            this.studentTextField.MaxLength = 32767;
             this.studentTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.studentTextField.Name = "studentTextField";
             this.studentTextField.PasswordChar = '\0';
@@ -319,6 +388,7 @@ namespace Absenz
             this.studentTextField.SelectionStart = 0;
             this.studentTextField.Size = new System.Drawing.Size(200, 23);
             this.studentTextField.TabIndex = 1;
+            this.studentTextField.TabStop = false;
             this.studentTextField.UseSystemPasswordChar = false;
             // 
             // studentLabel
@@ -342,58 +412,6 @@ namespace Absenz
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Absenzen bestätigen";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // materialListView1
-            // 
-            this.materialListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader1,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
-            this.materialListView1.Depth = 0;
-            this.materialListView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.materialListView1.FullRowSelect = true;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup1";
-            this.materialListView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3});
-            this.materialListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.materialListView1.Location = new System.Drawing.Point(3, 9);
-            this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialListView1.Name = "materialListView1";
-            this.materialListView1.OwnerDraw = true;
-            this.materialListView1.Size = new System.Drawing.Size(579, 224);
-            this.materialListView1.TabIndex = 0;
-            this.materialListView1.UseCompatibleStateImageBehavior = false;
-            this.materialListView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Schüler";
-            this.columnHeader2.Width = 110;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Lehrer";
-            this.columnHeader1.Width = 110;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Fach";
-            this.columnHeader3.Width = 110;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Datum";
-            this.columnHeader4.Width = 110;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Grund";
-            this.columnHeader5.Width = 110;
             // 
             // Form1
             // 
@@ -434,7 +452,7 @@ namespace Absenz
         private MaterialSkin.Controls.MaterialRaisedButton saveAbsenceButton;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
         public MaterialSkin.Controls.MaterialLabel messageLabel;
-        private MaterialSkin.Controls.MaterialListView materialListView1;
+        public MaterialSkin.Controls.MaterialListView materialListView1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader3;
