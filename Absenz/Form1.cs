@@ -25,16 +25,23 @@ namespace Absenz
             _absence = new Absence(_dbCon.Con);
             _absence.ShowAbsence();
 
-            foreach (var s in _absence.ShowAbsence())
-            {
-                System.Windows.Forms.ListViewItem blabla = new System.Windows.Forms.ListViewItem(new[] {
-                    s.Student,
-                    s.Teacher,
-                    s.Subject,
-                    s.Date,
-                    s.Reason}, -1);
+            PrintAbsence();
+        }
 
-                materialListView1.Items.AddRange(new[] {blabla});
+        private void PrintAbsence()
+        {
+            foreach (var absence in _absence.ShowAbsence())
+            {
+                System.Windows.Forms.ListViewItem absenceList = new System.Windows.Forms.ListViewItem(new[]
+                {
+                    absence.Student,
+                    absence.Teacher,
+                    absence.Subject,
+                    absence.Date,
+                    absence.Reason
+                }, -1);
+
+                absenceListView.Items.AddRange(new[] {absenceList});
             }
         }
 

@@ -40,7 +40,7 @@ namespace Absenz
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
+            this.absenceListView = new MaterialSkin.Controls.MaterialListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -94,7 +94,7 @@ namespace Absenz
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.materialListView1);
+            this.tabPage1.Controls.Add(this.absenceListView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -103,32 +103,32 @@ namespace Absenz
             this.tabPage1.Text = "Absenzen anzeigen";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // materialListView1
+            // absenceListView
             // 
-            this.materialListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.absenceListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.absenceListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
             this.columnHeader1,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.materialListView1.Depth = 0;
-            this.materialListView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.materialListView1.FullRowSelect = true;
+            this.absenceListView.Depth = 0;
+            this.absenceListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.absenceListView.FullRowSelect = true;
             listViewGroup1.Header = "ListViewGroup";
             listViewGroup1.Name = "listViewGroup1";
-            this.materialListView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            this.absenceListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1});
-            this.materialListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.materialListView1.Location = new System.Drawing.Point(3, 9);
-            this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialListView1.Name = "materialListView1";
-            this.materialListView1.OwnerDraw = true;
-            this.materialListView1.Size = new System.Drawing.Size(579, 224);
-            this.materialListView1.TabIndex = 0;
-            this.materialListView1.UseCompatibleStateImageBehavior = false;
-            this.materialListView1.View = System.Windows.Forms.View.Details;
+            this.absenceListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.absenceListView.Location = new System.Drawing.Point(3, 9);
+            this.absenceListView.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.absenceListView.MouseState = MaterialSkin.MouseState.OUT;
+            this.absenceListView.Name = "absenceListView";
+            this.absenceListView.OwnerDraw = true;
+            this.absenceListView.Size = new System.Drawing.Size(579, 224);
+            this.absenceListView.TabIndex = 0;
+            this.absenceListView.UseCompatibleStateImageBehavior = false;
+            this.absenceListView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader2
             // 
@@ -452,7 +452,7 @@ namespace Absenz
         private MaterialSkin.Controls.MaterialRaisedButton saveAbsenceButton;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
         public MaterialSkin.Controls.MaterialLabel messageLabel;
-        public MaterialSkin.Controls.MaterialListView materialListView1;
+        public MaterialSkin.Controls.MaterialListView absenceListView;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader3;
