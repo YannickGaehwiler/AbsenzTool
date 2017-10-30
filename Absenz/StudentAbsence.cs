@@ -12,14 +12,22 @@
 
         public string Date { get; set; }
 
-        public StudentAbsence(string student, string teacher, string subject, string reason, string date)
+        public string StudentId { get; set; }
+
+        public string TeacherId { get; set; }
+
+        public string SubjectId { get; set; }
+
+        public StudentAbsence(string student, string teacher, string subject, string reason, string date, string studentId, string teacherId, string subjectId)
         {
             this.Student = student;
             this.Teacher = teacher;
             this.Subject = subject;
             this.Reason = reason;
             this.Date = date;
+            this.StudentId = studentId;
+            this.TeacherId = teacherId;
+            this.SubjectId = subjectId;
         }
-
     }
 }

@@ -206,7 +206,7 @@ namespace Absenz
             this.materialRaisedButton2.TabIndex = 13;
             this.materialRaisedButton2.Text = "Löschen";
             this.materialRaisedButton2.UseVisualStyleBackColor = true;
-            this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
+            this.materialRaisedButton2.Click += new System.EventHandler(this.ClearAllButton_Click);
             // 
             // saveAbsenceButton
             // 

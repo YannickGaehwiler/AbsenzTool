@@ -7,32 +7,35 @@ namespace Absenz
 {
     public partial class Form1 : MaterialForm
     {
-        private Absence _absence;
         private DatabaseConnection _dbCon;
+        private StudentAbsence _studentAbsence;
+        private readonly Sql _sqlManager;
         public Form1()
         {
             MaximizeBox = false;
 
             InitializeComponent();
-
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-
+            ActivateMaterialDesign();
             EstablishDbConnection();
 
-            _absence = new Absence(_dbCon.Con);
-            _absence.ShowAbsence();
+            _sqlManager = new Sql(_dbCon.Con);
 
             PrintAbsence();
         }
 
+        private void ActivateMaterialDesign()
+        {
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+        }
+
         private void PrintAbsence()
         {
-            foreach (var absence in _absence.ShowAbsence())
+            foreach (var absence in _sqlManager.GetAbsences())
             {
-                System.Windows.Forms.ListViewItem absenceList = new System.Windows.Forms.ListViewItem(new[]
+                var absenceList = new System.Windows.Forms.ListViewItem(new[]
                 {
                     absence.Student,
                     absence.Teacher,
@@ -40,7 +43,6 @@ namespace Absenz
                     absence.Date,
                     absence.Reason
                 }, -1);
-
                 absenceListView.Items.AddRange(new[] {absenceList});
             }
         }
@@ -53,11 +55,11 @@ namespace Absenz
 
         private void SaveAbsenceButton_Click(object sender, EventArgs e)
         {
-            _absence = new Absence(studentTextField.Text, dateTextField.Text, teacherTextField.Text, subjectTextField.Text, reasonTextField.Text, officeTextField.Text, _dbCon.Con);
-            _absence.SaveAbsence();
+            _studentAbsence = new StudentAbsence(studentTextField.Text, teacherTextField.Text, subjectTextField.Text, reasonTextField.Text, dateTextField.Text, _sqlManager.GetStudentIdByName(studentTextField.Text), _sqlManager.GetTeacherIdByName(teacherTextField.Text), _sqlManager.GetSubjectIdByName(subjectTextField.Text));
+            _sqlManager.WriteAbsence(_studentAbsence);
         }
 
-        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        private void ClearAllButton_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
