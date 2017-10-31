@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -9,7 +8,7 @@ namespace Absenz
     {
         private DatabaseConnection _dbCon;
         private StudentAbsence _studentAbsence;
-        private readonly Sql _sqlManager;
+        private readonly StudentRepository _studentRepository;
         public Form1()
         {
             MaximizeBox = false;
@@ -18,7 +17,7 @@ namespace Absenz
             ActivateMaterialDesign();
             EstablishDbConnection();
 
-            _sqlManager = new Sql(_dbCon.Con);
+            _studentRepository = new StudentRepository(_dbCon.Con);
 
             PrintAbsence();
         }
@@ -33,7 +32,7 @@ namespace Absenz
 
         private void PrintAbsence()
         {
-            foreach (var absence in _sqlManager.GetAbsences())
+            foreach (var absence in _studentRepository.GetAbsences())
             {
                 var absenceList = new System.Windows.Forms.ListViewItem(new[]
                 {
@@ -55,8 +54,8 @@ namespace Absenz
 
         private void SaveAbsenceButton_Click(object sender, EventArgs e)
         {
-            _studentAbsence = new StudentAbsence(studentTextField.Text, teacherTextField.Text, subjectTextField.Text, reasonTextField.Text, dateTextField.Text, _sqlManager.GetStudentIdByName(studentTextField.Text), _sqlManager.GetTeacherIdByName(teacherTextField.Text), _sqlManager.GetSubjectIdByName(subjectTextField.Text));
-            _sqlManager.WriteAbsence(_studentAbsence);
+            _studentAbsence = new StudentAbsence(studentTextField.Text, teacherTextField.Text, subjectTextField.Text, reasonTextField.Text, dateTextField.Text);
+            _studentRepository.WriteAbsence(_studentAbsence);
         }
 
         private void ClearAllButton_Click(object sender, EventArgs e)

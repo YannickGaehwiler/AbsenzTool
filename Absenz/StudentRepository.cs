@@ -4,12 +4,12 @@ using MySql.Data.MySqlClient;
 
 namespace Absenz
 {
-    public class Sql
+    public class StudentRepository
     {
         private readonly MySqlConnection _mySqlConnection;
         private MySqlCommand _mySqlCommand;
 
-        public Sql(MySqlConnection mySqlConnection)
+        public StudentRepository(MySqlConnection mySqlConnection)
         {
             this._mySqlConnection = mySqlConnection;
         }
@@ -44,11 +44,8 @@ namespace Absenz
                             reader.GetString("Lehrervorname") + " " + reader.GetString("Lehrernachname"), 
                             reader.GetString("name"),
                             reader.GetString("grund"), 
-                            reader.GetString("datum"), 
-                            reader.GetString("FK_Schueler"),
-                            reader.GetString("FK_Lehrperson"), 
-                            reader.GetString("FK_Fach"))
-                            );
+                            reader.GetString("datum")
+                            ));
                     }
                     catch (Exception e)
                     {
@@ -62,15 +59,18 @@ namespace Absenz
         private void SaveAbsence(StudentAbsence studentAbsence)
         {
             _mySqlCommand = _mySqlConnection.CreateCommand();
-            _mySqlCommand.CommandText = "INSERT INTO absenz(datum, grund, FK_Schueler, FK_Fach, FK_Lehrperson) VALUES (@date, @reason, @student, @subject, @teacher)";
+            _mySqlCommand.CommandText = "INSERT INTO absenz(datum, grund, FK_Schueler, FK_Fach, FK_Lehrperson) VALUES (@date, @reason, (SELECT id_schueler FROM schueler WHERE vorname = @studentFirstname AND nachname = @studentLastname), (SELECT id_fach FROM fach WHERE name = @fach), (SELECT id_lehrperson FROM lehrperson WHERE vorname = @teacherFirstname AND nachname = @TeacherLastname))";
             _mySqlCommand.Parameters.AddWithValue("@date", studentAbsence.Date);
             _mySqlCommand.Parameters.AddWithValue("@reason", studentAbsence.Reason);
-            _mySqlCommand.Parameters.AddWithValue("@student", studentAbsence.StudentId);
-            _mySqlCommand.Parameters.AddWithValue("@subject", studentAbsence.SubjectId);
-            _mySqlCommand.Parameters.AddWithValue("@teacher", studentAbsence.TeacherId);
+            _mySqlCommand.Parameters.AddWithValue("@studentFirstname", SplitName(studentAbsence.Student)[0]);
+            _mySqlCommand.Parameters.AddWithValue("@studentLastname", SplitName(studentAbsence.Student)[1]);
+            _mySqlCommand.Parameters.AddWithValue("@fach", studentAbsence.Subject);
+            _mySqlCommand.Parameters.AddWithValue("@teacherFirstname", SplitName(studentAbsence.Teacher)[0]);
+            _mySqlCommand.Parameters.AddWithValue("@teacherLastname", SplitName(studentAbsence.Teacher)[1]);
 
             _mySqlCommand.ExecuteNonQuery();
         }
+        /*
 
         public string GetStudentIdByName(string studentName)
         {
@@ -125,10 +125,12 @@ namespace Absenz
                 return reader.Read() ? reader.GetString(0) : "0";
             }
         }
-        
+    */    
+
         public string[] SplitName(string fullName)
         {
             return fullName.Split(' ');
         }
+        
     }
 }
