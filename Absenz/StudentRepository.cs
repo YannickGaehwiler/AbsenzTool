@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 
 namespace Absenz
 {
-    public class StudentRepository
+    public class StudentRepository : IStudentRepository
     {
         private readonly MySqlConnection _mySqlConnection;
         private MySqlCommand _mySqlCommand;
@@ -39,13 +39,7 @@ namespace Absenz
                 {
                     try
                     {
-                        studentAbsence.Add(new StudentAbsence(
-                            reader.GetString("Schülervorname") + " " + reader.GetString("Schülernachname"),
-                            reader.GetString("Lehrervorname") + " " + reader.GetString("Lehrernachname"), 
-                            reader.GetString("name"),
-                            reader.GetString("grund"), 
-                            reader.GetString("datum")
-                            ));
+                        studentAbsence.Add(new StudentAbsence(reader.GetString("Schülervorname") + " " + reader.GetString("Schülernachname"),reader.GetString("Lehrervorname") + " " + reader.GetString("Lehrernachname"), reader.GetString("name"), reader.GetString("grund"), reader.GetString("datum")));
                     }
                     catch (Exception e)
                     {
@@ -70,67 +64,10 @@ namespace Absenz
 
             _mySqlCommand.ExecuteNonQuery();
         }
-        /*
-
-        public string GetStudentIdByName(string studentName)
-        {
-            return GetStudentIdSql(SplitName(studentName));
-        }
-
-        public string GetTeacherIdByName(string teacherName)
-        {
-            return GetTeacherIdSql(SplitName(teacherName));
-        }
-
-        public string GetSubjectIdByName(string subject)
-        {
-            return GetSubjectIdSql(subject);
-        }
-
         
-        private string GetStudentIdSql(string[] studentName)
-        {
-            _mySqlCommand = _mySqlConnection.CreateCommand();
-            _mySqlCommand.CommandText = "SELECT id_schueler FROM schueler WHERE vorname = @firstname AND nachname = @lastname";
-            _mySqlCommand.Parameters.AddWithValue("@firstname", studentName[0]);
-            _mySqlCommand.Parameters.AddWithValue("@lastname", studentName[1]);
-
-            using (var reader = _mySqlCommand.ExecuteReader())
-            {
-                return reader.Read() ? reader.GetString(0) : "0";
-            }
-        }
-        
-        private string GetTeacherIdSql(string[] teacherName)
-        {
-            _mySqlCommand = _mySqlConnection.CreateCommand();
-            _mySqlCommand.CommandText = "SELECT id_lehrperson FROM lehrperson WHERE vorname = @firstname AND nachname = @lastname";
-            _mySqlCommand.Parameters.AddWithValue("@firstname", teacherName[0]);
-            _mySqlCommand.Parameters.AddWithValue("@lastname", teacherName[1]);
-
-            using (var reader = _mySqlCommand.ExecuteReader())
-            {
-                return reader.Read() ? reader.GetString(0) : "0";
-            }
-        }
-        
-        private string GetSubjectIdSql(string subject)
-        {
-            _mySqlCommand = _mySqlConnection.CreateCommand();
-            _mySqlCommand.CommandText = "SELECT id_fach FROM fach WHERE name = @fach";
-            _mySqlCommand.Parameters.AddWithValue("@fach", subject);
-
-            using (var reader = _mySqlCommand.ExecuteReader())
-            {
-                return reader.Read() ? reader.GetString(0) : "0";
-            }
-        }
-    */    
-
         public string[] SplitName(string fullName)
         {
             return fullName.Split(' ');
         }
-        
     }
 }

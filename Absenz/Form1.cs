@@ -8,7 +8,7 @@ namespace Absenz
     {
         private DatabaseConnection _dbCon;
         private StudentAbsence _studentAbsence;
-        private readonly StudentRepository _studentRepository;
+        private readonly IStudentRepository _studentRepository;
         public Form1()
         {
             MaximizeBox = false;
