@@ -13,16 +13,18 @@ namespace Absenz
         {
             this._mySqlConnection = mySqlConnection;
         }
-
-        public void WriteAbsence(StudentAbsence studentAbsence)
+        
+        public bool WriteAbsence(StudentAbsence studentAbsence)
         {
             try
             {
                 SaveAbsence(studentAbsence);
+                return true;
             }
             catch (MySqlException e)
             {
                 Console.WriteLine(e.StackTrace);
+                return false;
             }
         }
 

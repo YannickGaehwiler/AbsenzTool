@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Absenz
 {
@@ -6,6 +7,6 @@ namespace Absenz
     {
         List<StudentAbsence> GetAbsences();
         string[] SplitName(string fullName);
-        void WriteAbsence(StudentAbsence studentAbsence);
+        bool WriteAbsence(StudentAbsence studentAbsence);
     }
 }
