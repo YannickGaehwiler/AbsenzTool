@@ -3,7 +3,6 @@ using System.Linq;
 using Absenz;
 using Xunit;
 using FluentAssertions;
-using MySql.Data.MySqlClient;
 
 namespace UnitTests
 {

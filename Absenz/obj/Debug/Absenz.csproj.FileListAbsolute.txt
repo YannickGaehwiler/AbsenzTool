@@ -22,3 +22,6 @@ C:\_GIT\Absenz\Absenz\obj\Debug\Absenz.csproj.GenerateResource.Cache
 C:\_GIT\Absenz\Absenz\obj\Debug\Absenz.csproj.CoreCompileInputs.cache
 C:\_GIT\Absenz\Absenz\obj\Debug\Absenz.exe
 C:\_GIT\Absenz\Absenz\obj\Debug\Absenz.pdb
+C:\_GIT\Absenz\Absenz\bin\Debug\Dapper.dll
+C:\_GIT\Absenz\Absenz\bin\Debug\Dapper.xml
+C:\_GIT\Absenz\Absenz\bin\Debug\MySql.Data.xml
