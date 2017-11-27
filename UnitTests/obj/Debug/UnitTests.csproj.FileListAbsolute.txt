@@ -25,3 +25,5 @@ C:\_GIT\Absenz\UnitTests\obj\Debug\UnitTests.csproj.CoreCompileInputs.cache
 C:\_GIT\Absenz\UnitTests\obj\Debug\UnitTests.dll
 C:\_GIT\Absenz\UnitTests\obj\Debug\UnitTests.pdb
 C:\_GIT\Absenz\UnitTests\bin\Debug\UnitTests.dll.config
+C:\_GIT\Absenz\UnitTests\bin\Debug\Dapper.dll
+C:\_GIT\Absenz\UnitTests\bin\Debug\Dapper.xml

@@ -4,8 +4,8 @@ namespace Absenz
 {
     public interface IStudentRepository
     {
-        List<StudentAbsence> GetAbsences();
         string[] SplitName(string fullName);
         bool WriteAbsence(StudentAbsence studentAbsence);
+        List<StudentAbsence> ReadAll();
     }
 }

@@ -16,7 +16,7 @@ namespace UnitTests
             _dbConnection = new DatabaseConnection("localhost", "absenz_db", "root", "Test1234");
             _dbConnection.Connect();
 
-            _testee = new StudentRepository(_dbConnection.Con);
+            _testee = new StudentRepository();
         }
         
         [Fact]
@@ -26,13 +26,13 @@ namespace UnitTests
             {
                 var studentAbsence = new StudentAbsence("Yannick Gähwiler", "Harald Müller", "Mathematik", "testreason", "testdate");
 
-                var resultBefore = _testee.GetAbsences();
+                var resultBefore = _testee.ReadAll();
                 var found = resultBefore.Any(absence => absence.Reason.Equals(studentAbsence.Reason) && absence.Date.Equals(studentAbsence.Date));
                 found.Should().Be(false);
 
                 _testee.WriteAbsence(studentAbsence);
 
-                var result = _testee.GetAbsences();
+                var result = _testee.ReadAll();
                 found = result.Any(absence => absence.Reason.Equals(studentAbsence.Reason) && absence.Date.Equals(studentAbsence.Date));
 
                 found.Should().Be(true);
@@ -43,7 +43,7 @@ namespace UnitTests
         [Fact]
         private void CanReadAllAbsences()
         {
-            var result = _testee.GetAbsences();
+            var result = _testee.ReadAll();
 
             result.Count.Should().BePositive();
         }

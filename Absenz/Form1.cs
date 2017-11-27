@@ -17,7 +17,7 @@ namespace Absenz
             ActivateMaterialDesign();
             EstablishDbConnection();
 
-            _studentRepository = new StudentRepository(_dbCon.Con);
+            _studentRepository = new StudentRepository();
 
             PrintAbsence();
         }
@@ -32,7 +32,7 @@ namespace Absenz
 
         private void PrintAbsence()
         {
-            foreach (var absence in _studentRepository.GetAbsences())
+            foreach (var absence in _studentRepository.ReadAll())
             {
                 var absenceList = new System.Windows.Forms.ListViewItem(new[]
                 {
