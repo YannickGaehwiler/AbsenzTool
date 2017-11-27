@@ -6,7 +6,6 @@ namespace Absenz
 {
     public partial class Form1 : MaterialForm
     {
-        private DatabaseConnection _dbCon;
         private StudentAbsence _studentAbsence;
         private readonly IStudentRepository _studentRepository;
         public Form1()
@@ -15,7 +14,6 @@ namespace Absenz
 
             InitializeComponent();
             ActivateMaterialDesign();
-            EstablishDbConnection();
 
             _studentRepository = new StudentRepository();
 
@@ -44,12 +42,6 @@ namespace Absenz
                 }, -1);
                 absenceListView.Items.AddRange(new[] {absenceList});
             }
-        }
-
-        private void EstablishDbConnection()
-        {
-            this._dbCon = new DatabaseConnection("localhost", "absenz_db", "root", "Test1234");
-            this._dbCon.Connect();
         }
 
         private void SaveAbsenceButton_Click(object sender, EventArgs e)
